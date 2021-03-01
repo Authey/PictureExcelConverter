@@ -49,16 +49,19 @@ class Converter:
         img_src.close()
 
     def fill_cells(self):
-        if not os.path.isfile(self.xls):
-            wb = Workbook()
-            ws = wb.active
-            ws.title = "pic"
-            wb.save(self.xls)
+        if os.path.isfile(self.xls):
+            os.remove(self.xls)
+        wb = Workbook()
+        ws = wb.active
+        ws.title = "pic"
+        wb.save(self.xls)
+        wb.close()
+
         wb = load_workbook(self.xls)
         ws = wb.active
-        for row in range(self.y):
+        for row in range(self.y - 1):
             ws.row_dimensions[row+1].height = 15
-            for col in range(self.x):
+            for col in range(self.x - 1):
                 ws.column_dimensions[ch26(col)].width = 2.78
                 c_rgb = self.data[row][col]
                 c_hex = rgb_to_hex(c_rgb)
