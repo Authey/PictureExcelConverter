@@ -6,3 +6,4 @@
 - Waiting for the result excel file
 - Keep waiting especially when you convert a large picture
 - Almost finished, just wait
+#### Strongly recommend to use a picture with size less than 1000 x 1000
